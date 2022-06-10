@@ -1,0 +1,116 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #EFF5F9;
+    display: flex;
+    height: 50vw;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 300;
+}
+
+.container {
+    width: 400px;
+    height: 800px;
+    background-color: #F7FBFD;
+    border-radius: 25px;
+    box-shadow: 20px 20px 20px 15px rgba(0, 71, 138, 0.060);
+}
+
+.top {
+    width: 400px;
+    height: 400px;
+}
+
+.down {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    flex: 1;
+}
+
+.topPart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.underPart {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.progressBar {
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 2;
+    margin-bottom: 50px;
+}
+
+#previousButton {
+    width: 50px;
+    height: 50px;
+}
+
+#pauseButton {
+    width: 100px;
+    height: 100px;
+}
+
+#nextButton {
+    width: 50px;
+    height: 50px;
+}
+
+.cover {
+    height: 400px; 
+    width: 400px; 
+    border-radius: 20px 20px 0 0;
+}
+
+.audio {
+    width: 340px;
+    display: none;
+}
+
+.progress_bar {
+    height: 8px;
+    width: 320px;
+    background-color: #9c9c9c;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+.progressed {
+    height: 8px;
+    background-color: black;
+    border-radius: 15px;
+    width: 0%;
+    transition: all 0.5s;
+}
+
+.progressed::after {
+    content: ' ';
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: black;
+}

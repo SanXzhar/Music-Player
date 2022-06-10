@@ -1,0 +1,29 @@
+#add-container {
+    margin-top: 50px;
+    margin-bottom: 80px;
+    margin-left: 30px;
+}
+
+#places-container {
+    margin-left: 30px;
+}
+
+.remove{
+    width: 15px;
+    float: right;
+    color: red;
+    padding: 10px;
+}
+
+.item {
+    width: 150px;
+    margin: 10px;
+    background-color: violet;
+}
+
+button {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+
+}

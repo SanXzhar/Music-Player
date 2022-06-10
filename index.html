@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,200&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d82032e889.js" crossorigin="anonymous"></script>
+    <title>music player</title>
+</head>
+<body>
+    <div class="container">
+        <div class="top"><img src="chill-bill.jpg" alt="chill bill cover" class="cover" id="cover"></div>
+        <div class="down">
+            <div class="info">
+                <div class="topPart">
+                    <div class="song" style="font-size: 24px;" id="song_name"><strong>Chill Bill</strong> </div>
+                    <div class="playlistCount" style="font-size: 16px" id="Playlist">Playlist 1 of 3</div>
+                </div>
+                <div class="underPart">
+                    <div class="artist" id="artist_name"><strong>by Rob $tone</strong></div>
+                    <div class="playlist">Liked</div>
+                </div> 
+            </div>
+            <div class="progressBar">
+                <div class="progress_bar" id="progress_bar">
+                    <div class="progressed" id="progressed"></div>
+                </div>
+                <audio controls preload="auto" autoplay class="audio" id="myAudio">
+                    <source src="ChillBill.mp3">
+                  </audio>
+                
+
+            </div>
+            <div class="button">
+                <div id="previousButton"><img src="previous.svg" onclick="previousSong()" id="buttonPrevious"></div>
+                <div id="pauseButton"><img src="play.svg" onclick="runaudio()" id="buttonPlay"></div>
+                <div id="nextButton"><img src="next.svg" onclick="nextSong()" id="buttonNext"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const audiomain = document.getElementById("myAudio");
+        const playButton = document.getElementById("buttonPlay");
+        const previousButton = document.getElementById("buttonPrevious");
+        const Playlist2 = document.getElementById("Playlist");
+        const address = document.getElementById("myAudio");
+        const Coversong = document.getElementById("cover");
+        const song = document.getElementById("song_name");
+        const artist = document.getElementById("artist_name");
+        const progressed = document.getElementById("progressed")
+        const progress_bar = document.getElementById("progress_bar")
+        let trackIndex = 0;
+
+        let trackname = ["Chill Bill", "Real Slim Shady", "Watermelon Sugar"];
+        let artistname = ["Rob $tone", "Eminem", "Harry Style"]
+        let playlistnumber = ["Playlist 1 of 3", "Playlist 2 of 3", "Playlist 3 of 3"]
+        let songcover = [ "chill-bill.jpg", "Eminem.jpg", "WS.jpg"]
+        let songurl = [`ChillBill.mp3`, `Eminem.mp3`, `WS.mp3`]
+        myAudio.ontimeupdate = function(e) {
+            progressed.style.width = Math.floor(myAudio.currentTime*100/myAudio.duration)+"%"
+        }
+        function nextSong() {
+           trackIndex++;
+           if(trackIndex > trackname.length - 1){
+               trackIndex = 0;
+                }
+           progressed.style.width = "0%"
+           address.src = songurl[trackIndex]
+           Playlist2.innerHTML = playlistnumber[trackIndex]
+           artist.innerHTML = artistname[trackIndex]
+           song.innerHTML = trackname[trackIndex]
+           Coversong.src = songcover[trackIndex]
+           buttonPlay.src = "play.svg"
+           audiomain.pause();
+
+        }
+
+        progress_bar.onclick = function(e){
+            myAudio.currentTime = ((e.offsetX/progress_bar.offsetWidth) * myAudio.duration);
+        }
+
+        function previousSong() {
+            trackIndex--;
+            if (trackIndex < 0) {
+                trackIndex = trackname.length - 1;
+
+            }
+           progressed.style.width = "0%"
+           address.src = songurl[trackIndex]
+           Playlist2.innerHTML = playlistnumber[trackIndex]
+           artist.innerHTML = artistname[trackIndex]
+           song.innerHTML = trackname[trackIndex]
+           Coversong.src = songcover[trackIndex]
+           buttonPlay.src = "play.svg"
+           audiomain.pause();
+        }
+
+        function runaudio() {
+            if(audiomain.paused){
+                audiomain.play();
+                buttonPlay.src = "pause.svg"
+            }
+            else{
+                audiomain.pause();
+                buttonPlay.src = "play.svg"
+            }
+        }
+    </script>
+</body>
+</html>
