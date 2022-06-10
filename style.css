@@ -105,10 +105,15 @@ body {
     border-radius: 15px;
     width: 0%;
     transition: all 0.5s;
+    position: relative;
 }
 
 .progressed::after {
     content: ' ';
+    position: absolute;
+    right: 0;
+    top:50%;
+    transform: translateY(-50%);
     width: 15px;
     height: 15px;
     border-radius: 10px;
